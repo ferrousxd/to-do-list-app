@@ -8,7 +8,6 @@
 import Foundation
 
 public struct ToDoItem: Codable {
-    var id: Int?
     var title: String?
     var subtitle: String?
     var status: String?

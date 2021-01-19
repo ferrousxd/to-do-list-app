@@ -116,11 +116,104 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="vqd-l8-MMd" id="Up9-qU-Lc7"/>
+                        <segue destination="DxP-in-3Ax" kind="show" id="fx2-ig-btV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSi-ed-ewe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1246" y="119"/>
+        </scene>
+        <!--Edit Table Cell View Controller-->
+        <scene sceneID="cEJ-sU-d7s">
+            <objects>
+                <viewController storyboardIdentifier="EditTableCellViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DxP-in-3Ax" customClass="EditTableCellViewController" customModule="Assignment1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LZT-ug-7dn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="fU3-uF-WNs">
+                                <rect key="frame" x="47" y="112" width="320" height="672.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Existing To-Do Item" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVC-ct-2yS">
+                                        <rect key="frame" x="16" y="0.0" width="288" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raw-lt-Go3">
+                                        <rect key="frame" x="143.5" y="36.5" width="33" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vXD-BY-qEX">
+                                        <rect key="frame" x="60" y="60" width="200" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="J9W-zm-jMR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyi-pl-Khv">
+                                        <rect key="frame" x="131" y="97" width="58.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3aM-CH-tFZ">
+                                        <rect key="frame" x="60" y="120.5" width="200" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="i2t-bF-Vu0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63k-6R-yXG">
+                                        <rect key="frame" x="135.5" y="157.5" width="49" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="urI-JA-ZaY">
+                                        <rect key="frame" x="0.0" y="181" width="320" height="216"/>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Waq-aj-fFz">
+                                        <rect key="frame" x="126.5" y="400" width="67" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="322-1B-2DP">
+                                        <rect key="frame" x="0.0" y="423" width="320" height="216"/>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxD-eq-cPY">
+                                        <rect key="frame" x="135.5" y="642.5" width="49" height="30"/>
+                                        <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="submitAction:" destination="DxP-in-3Ax" eventType="touchUpInside" id="NFm-il-uDt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Mbi-Iq-x4i"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fU3-uF-WNs" firstAttribute="centerX" secondItem="LZT-ug-7dn" secondAttribute="centerX" id="2YR-Bi-eHj"/>
+                            <constraint firstItem="fU3-uF-WNs" firstAttribute="centerY" secondItem="LZT-ug-7dn" secondAttribute="centerY" id="AJ3-Tf-Ych"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ia4-RT-uWV"/>
+                    <connections>
+                        <outlet property="deadlinePicker" destination="322-1B-2DP" id="7Jh-eO-dlW"/>
+                        <outlet property="statusPicker" destination="urI-JA-ZaY" id="sIJ-XP-rrs"/>
+                        <outlet property="subtitleLabel" destination="3aM-CH-tFZ" id="z3a-8E-cs2"/>
+                        <outlet property="titleLabel" destination="vXD-BY-qEX" id="9EF-mu-mut"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5SX-ct-qxG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2156.521739130435" y="-125.22321428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hTM-FT-Vqu">
