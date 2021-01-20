@@ -106,12 +106,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="hTL-k1-poT">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="PRl-0D-nao">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="EhD-3n-GzW">
-                                <rect key="frame" x="364" y="7" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" image="plus.app" catalog="system" id="IOK-ov-5lX">
+                            <connections>
+                                <action selector="addNewToDoItem:" destination="hqt-Zu-Ipe" id="YYb-hk-KVx"/>
+                                <segue destination="sQ6-5w-VTH" kind="show" id="Zp5-Wd-sad"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -184,7 +183,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="322-1B-2DP">
-                                        <rect key="frame" x="0.0" y="423" width="320" height="216"/>
+                                        <rect key="frame" x="0.0" y="423.5" width="320" height="216"/>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxD-eq-cPY">
                                         <rect key="frame" x="135.5" y="642.5" width="49" height="30"/>
@@ -213,7 +212,100 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5SX-ct-qxG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2156.521739130435" y="-125.22321428571428"/>
+            <point key="canvasLocation" x="2157" y="-214"/>
+        </scene>
+        <!--Add Table Cell View Controller-->
+        <scene sceneID="aIF-pe-ay6">
+            <objects>
+                <viewController storyboardIdentifier="AddTableCellViewController" id="sQ6-5w-VTH" customClass="AddTableCellViewController" customModule="Assignment1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fGe-w7-IeG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="nQ1-F3-Kc2">
+                                <rect key="frame" x="47" y="112" width="320" height="672.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New To-Do Item" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZg-d7-W85">
+                                        <rect key="frame" x="19" y="0.0" width="282" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VV5-Gn-VXX">
+                                        <rect key="frame" x="143.5" y="36.5" width="33" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xir-3g-SjV">
+                                        <rect key="frame" x="60" y="60" width="200" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="n5g-mF-tKj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eq9-Xu-GvN">
+                                        <rect key="frame" x="131" y="97" width="58.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CQK-ai-kMD">
+                                        <rect key="frame" x="60" y="120.5" width="200" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="E4b-jp-XdX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36c-hx-nU2">
+                                        <rect key="frame" x="135.5" y="157.5" width="49" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSX-5n-QXD">
+                                        <rect key="frame" x="0.0" y="181" width="320" height="216"/>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFV-ik-4H3">
+                                        <rect key="frame" x="126.5" y="400" width="67" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ui9-aX-q2w">
+                                        <rect key="frame" x="0.0" y="423.5" width="320" height="216"/>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRd-tv-tZI">
+                                        <rect key="frame" x="135.5" y="642.5" width="49" height="30"/>
+                                        <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="submitAction:" destination="DxP-in-3Ax" eventType="touchUpInside" id="P8V-cd-PfB"/>
+                                            <action selector="submitAction:" destination="sQ6-5w-VTH" eventType="touchUpInside" id="w8F-aJ-tWi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CZH-hG-WHf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nQ1-F3-Kc2" firstAttribute="centerX" secondItem="fGe-w7-IeG" secondAttribute="centerX" id="cA0-Ae-UBD"/>
+                            <constraint firstItem="nQ1-F3-Kc2" firstAttribute="centerY" secondItem="fGe-w7-IeG" secondAttribute="centerY" id="oAq-qR-Zh9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="UU0-BA-3mK"/>
+                    <connections>
+                        <outlet property="deadlinePicker" destination="Ui9-aX-q2w" id="3d7-71-L1S"/>
+                        <outlet property="statusPicker" destination="BSX-5n-QXD" id="WqQ-yV-zaQ"/>
+                        <outlet property="subtitleLabel" destination="CQK-ai-kMD" id="S8R-vN-YD3"/>
+                        <outlet property="titleLabel" destination="Xir-3g-SjV" id="5Hq-ev-vLu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AQA-OO-n90" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2157" y="450"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hTM-FT-Vqu">
@@ -233,6 +325,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus.app" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -7,9 +7,9 @@
 
 import UIKit
 
-protocol TableViewControllerDelegate {
-    func editToDoItem(_ id: Int, _ newToDoItem: ToDoItem)
+protocol TableViewControllerDelegate: AnyObject {
     func addToDoItem(_ newToDoItem: ToDoItem)
+    func editToDoItem(_ id: Int, _ newToDoItem: ToDoItem)
 }
 
 class TableViewController: UIViewController {
@@ -29,6 +29,7 @@ class TableViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Main page"
         self.configureTableView()
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +43,14 @@ class TableViewController: UIViewController {
         tableView.register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
         tableView.tableFooterView = UIView()
     }
+    
+    @IBAction func addNewToDoItem(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(identifier: "AddTableCellViewController") as! AddTableCellViewController
+
+        vc.delegate = self
+
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension TableViewController: TableViewControllerDelegate {
@@ -53,7 +62,8 @@ extension TableViewController: TableViewControllerDelegate {
     
     func addToDoItem(_ newToDoItem: ToDoItem) {
         array.append(newToDoItem)
-        tableView.reloadData()
+        print(newToDoItem)
+        tableView.insertRows(at: [IndexPath(row: array.count, section: 0)], with: .automatic)
     }
 }
 
@@ -81,7 +91,6 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
             
             vc.selectedToDoItemIndex = indexPath.row
             vc.selectedToDoItem = self.array[indexPath.row]
-            // Passing delegate to the next View Controller
             vc.delegate = self
             
             self.navigationController?.pushViewController(vc, animated: true)
@@ -89,20 +98,13 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
         
         editAction.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
         
-        let addAction = UIContextualAction(style: .normal, title: "Add") { (contextualAction, view, actionPerformed: (Bool) -> ()) in
-            print("Add: \(indexPath.row)")
-            print(self.array[indexPath.row])
-        }
-        
-        addAction.backgroundColor = #colorLiteral(red: 0, green: 1, blue: 0.01396386574, alpha: 1)
-        
-        return UISwipeActionsConfiguration(actions: [editAction, addAction])
+        return UISwipeActionsConfiguration(actions: [editAction])
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let removeAction = UIContextualAction(style: .destructive, title: "Remove") { (contextualAction, view, actionPerformed: (Bool) -> ()) in
             self.array.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
         return UISwipeActionsConfiguration(actions: [removeAction])

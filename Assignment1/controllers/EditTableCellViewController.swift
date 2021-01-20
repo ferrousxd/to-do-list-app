@@ -16,7 +16,7 @@ class EditTableCellViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     var selectedToDoItemIndex: Int?
     var selectedToDoItem: ToDoItem?
-    var delegate: TableViewControllerDelegate?
+    weak var delegate: TableViewControllerDelegate?
     var statusData = [String]()
     
     var updatedTitle: String?
