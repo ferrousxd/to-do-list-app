@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddTableCellViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddTableCellViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var titleLabel: UITextField!
     @IBOutlet weak var subtitleLabel: UITextField!
@@ -21,6 +21,11 @@ class AddTableCellViewController: UIViewController, UIPickerViewDelegate, UIPick
     var newSubtitle: String?
     var newStatus: String?
     var newDeadline: String?
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +35,8 @@ class AddTableCellViewController: UIViewController, UIPickerViewDelegate, UIPick
         titleLabel.delegate = self
         subtitleLabel.delegate = self
 
-        self.statusPicker.delegate = self
-        self.statusPicker.dataSource = self
+        statusPicker.delegate = self
+        statusPicker.dataSource = self
         
         statusData = ["In Progress", "Done"]
         

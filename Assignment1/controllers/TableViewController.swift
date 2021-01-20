@@ -28,6 +28,12 @@ class TableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Main page"
+        
+        // Swipe Gesture Recognizer
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(_:)))
+        leftSwipe.direction = .left
+        view.addGestureRecognizer(leftSwipe)
+        
         self.configureTableView()
         tableView.reloadData()
     }
@@ -44,12 +50,23 @@ class TableViewController: UIViewController {
         tableView.tableFooterView = UIView()
     }
     
-    @IBAction func addNewToDoItem(_ sender: Any) {
+    // Function that redirects us to the Add Table Cell View Controller
+    func navigateToAddTableCellViewController() {
         let vc = self.storyboard?.instantiateViewController(identifier: "AddTableCellViewController") as! AddTableCellViewController
 
         vc.delegate = self
 
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func addNewToDoItem(_ sender: Any) {
+        navigateToAddTableCellViewController()
+    }
+    
+    @IBAction func swipeHandler(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .left {
+            navigateToAddTableCellViewController()
+        }
     }
 }
 
@@ -95,7 +112,7 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
-        editAction.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+        editAction.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         
         return UISwipeActionsConfiguration(actions: [editAction])
     }

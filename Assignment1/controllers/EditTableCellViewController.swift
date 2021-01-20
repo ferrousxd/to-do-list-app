@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditTableCellViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class EditTableCellViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var titleLabel: UITextField!
     @IBOutlet weak var subtitleLabel: UITextField!
@@ -24,6 +24,11 @@ class EditTableCellViewController: UIViewController, UIPickerViewDelegate, UIPic
     var updatedStatus: String?
     var updatedDeadline: String?
     
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,8 +40,8 @@ class EditTableCellViewController: UIViewController, UIPickerViewDelegate, UIPic
         titleLabel.delegate = self
         subtitleLabel.delegate = self
         
-        self.statusPicker.delegate = self
-        self.statusPicker.dataSource = self
+        statusPicker.delegate = self
+        statusPicker.dataSource = self
         
         statusData = ["In Progress", "Done"]
         
