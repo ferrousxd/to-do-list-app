@@ -14,9 +14,9 @@ class EditTableCellViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var statusPicker: UIPickerView!
     @IBOutlet weak var deadlinePicker: UIDatePicker!
     
+    weak var delegate: TableViewControllerDelegate?
     var selectedToDoItemIndex: Int?
     var selectedToDoItem: ToDoItem?
-    weak var delegate: TableViewControllerDelegate?
     var statusData = [String]()
     
     var updatedTitle: String?
@@ -27,8 +27,13 @@ class EditTableCellViewController: UIViewController, UIPickerViewDelegate, UIPic
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Edit Existing To-Do Item"
+        
         titleLabel.text = selectedToDoItem?.title
         subtitleLabel.text = selectedToDoItem?.subtitle
+        
+        titleLabel.delegate = self
+        subtitleLabel.delegate = self
         
         self.statusPicker.delegate = self
         self.statusPicker.dataSource = self
@@ -74,14 +79,14 @@ class EditTableCellViewController: UIViewController, UIPickerViewDelegate, UIPic
         // Checking title for nil
         updatedTitle = titleLabel.text
         
-        if updatedTitle == nil {
+        if updatedTitle == "" || updatedTitle == nil {
             updatedTitle = selectedToDoItem?.title
         }
         
         // Checking subtitile for nil
         updatedSubtitle = subtitleLabel.text
         
-        if updatedSubtitle == nil {
+        if updatedSubtitle == "" || updatedSubtitle == nil {
             updatedSubtitle = selectedToDoItem?.subtitle
         }
         

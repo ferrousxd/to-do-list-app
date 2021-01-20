@@ -62,8 +62,7 @@ extension TableViewController: TableViewControllerDelegate {
     
     func addToDoItem(_ newToDoItem: ToDoItem) {
         array.append(newToDoItem)
-        print(newToDoItem)
-        tableView.insertRows(at: [IndexPath(row: array.count, section: 0)], with: .automatic)
+        tableView.reloadData()
     }
 }
 

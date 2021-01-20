@@ -24,6 +24,11 @@ class AddTableCellViewController: UIViewController, UIPickerViewDelegate, UIPick
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Create New To-Do Item"
+        
+        titleLabel.delegate = self
+        subtitleLabel.delegate = self
 
         self.statusPicker.delegate = self
         self.statusPicker.dataSource = self
@@ -67,12 +72,16 @@ class AddTableCellViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     @IBAction func submitAction(_ sender: Any) {
         // Checking title for nil
-        if newTitle == nil {
+        newTitle = titleLabel.text
+        
+        if newTitle == "" || newTitle == nil {
             newTitle = "Sample Text"
         }
         
         // Checking subtitile for nil
-        if newSubtitle == nil {
+        newSubtitle = subtitleLabel.text
+        
+        if newSubtitle == "" || newTitle == nil {
             newSubtitle = "Sample Text"
         }
         
